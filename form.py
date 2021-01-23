@@ -4,17 +4,24 @@ from PIL import ImageTk,Image
 from matplotlib import dates
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.dates as dates
 import datetime
 
 
 screen = Tk()
 create_table()
 
+# query mysql for GKI and reading dates, then plot them on a by date line chart.
 def list_readings():
-    list_reading_query = db.execute("SELECT ((glucose)/(ketones)) AS gki FROM readings WHERE user_id=1")
+    list_reading_query = db.execute("SELECT ((glucose)/(ketones)) AS gki, rdate FROM readings WHERE user_id=1")
     result = db.fetchall()
-    plt.plot(result)
-    plt.grid()
+    dates = []
+    values = []
+    for row in result:
+        dates.append(row[1])
+        values.append(row[0])
+    plt.plot_date(dates,values,'-')
+    plt.grid() 
     plt.show()
 
     
