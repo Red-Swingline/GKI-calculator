@@ -24,7 +24,7 @@ def gki():
     g = float(glu.get()) 
     m = mgdl.get()
     d = datetime.datetime.now()  
-    u = 1
+    u = 1 # Hard coded user_ID for readings table this will get replaced when I add reg/login 
 
     if m == 1: # Converts glucose to mmol/L if user selected a mg/dl checkbox
         g = g/18
