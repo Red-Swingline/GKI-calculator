@@ -20,7 +20,7 @@ def list_readings():
     for row in result:
         dates.append(row[1])
         values.append(row[0])
-    plt.plot_date(dates,values,'-')
+    plt.plot(dates,values,'o-')
     plt.grid() 
     plt.show()
 
