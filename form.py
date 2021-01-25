@@ -24,19 +24,30 @@ def list_readings():
     plt.grid() 
     plt.show()
 
+def ketone_level():
+    "Returns the ketone level from the GUI"
+    return float(ket.get())
+
+def glucose_level():
+    "Returns the glucose level in mmol/L from the GUI"
+    raw = float(glu.get())
+
+    # If user selected a mg/dl checkbox, convert glucose to mmol/L
+    if mgdl.get() == 1:
+        return raw/18
+    else:
+        return raw
+
 def gki():
     "Gets user input from database, runs the GKI calculation, stores result"
-    k = float(ket.get()) 
-    g = float(glu.get()) 
-    m = mgdl.get()
-    d = datetime.datetime.now()  
-    u = 1 # Hard coded user_ID for readings table this will get replaced when I add reg/login 
+    k = ketone_level()
+    g = glucose_level()
 
-    if m == 1: # Converts glucose to mmol/L if user selected a mg/dl checkbox
-        g = g/18
-        results = g/k 
-    else:
-        results = g/k
+    d = datetime.datetime.now()
+
+    u = 1 # Hard coded user_ID for readings table this will get replaced when I add reg/login 
+    
+    results = g/k
 
     if results <1:
         lvl = "You're in the highest therapeutic level ketosis."
