@@ -7,10 +7,6 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as dates
 import datetime
 
-
-screen = Tk()
-create_table()
-
 def list_readings():
     "Queries mysql for GKI and reading dates, plots them on a line chart"
     list_reading_query = db.execute("SELECT ((glucose)/(ketones)) AS gki, rdate FROM readings WHERE user_id=1")
@@ -71,6 +67,12 @@ def gki():
     lable_lvl.place(x=30, y=280)
     ketones_entry.delete(0,END)
     glucose_entry.delete(0,END)
+
+
+
+
+screen = Tk()
+create_table()
 
 # Creates the main from window
 screen.geometry("500x350")
