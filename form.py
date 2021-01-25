@@ -34,7 +34,7 @@ def glucose_level():
     else:
         return raw
 
-def display_gki(glucose, keytone):
+def display_gki(glucose, ketone):
     "Updates GUI with GKI calculation results"
     gki = glucose/ketone
 
@@ -72,7 +72,7 @@ def gki_clicked():
 
     store_readings(user_id, ketone, glucose)
 
-    display_gki(glucose, keytone)
+    display_gki(glucose, ketone)
 
     ketones_entry.delete(0,END)
     glucose_entry.delete(0,END)
