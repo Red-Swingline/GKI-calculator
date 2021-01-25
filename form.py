@@ -11,8 +11,8 @@ import datetime
 screen = Tk()
 create_table()
 
-# query mysql for GKI and reading dates, then plot them on a by date line chart.
 def list_readings():
+    "Queries mysql for GKI and reading dates, plots them on a line chart"
     list_reading_query = db.execute("SELECT ((glucose)/(ketones)) AS gki, rdate FROM readings WHERE user_id=1")
     result = db.fetchall()
     dates = []
@@ -24,9 +24,8 @@ def list_readings():
     plt.grid() 
     plt.show()
 
-    
-    # This will get the user input and run the GKI calculation 
-def gki(): 
+def gki():
+    "Gets user input from database, runs the GKI calculation, stores result"
     k = float(ket.get()) 
     g = float(glu.get()) 
     m = mgdl.get()
@@ -38,6 +37,7 @@ def gki():
         results = g/k 
     else:
         results = g/k
+
     if results <1:
         lvl = "You're in the highest therapeutic level ketosis."
     elif results <=3:
