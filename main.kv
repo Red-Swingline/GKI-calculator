@@ -1,0 +1,101 @@
+Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            id: screen_manager
+            Screen:
+                name: "info"
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    MDTopAppBar:
+                        title: "User Info"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+                        right_action_items: [['arrow-left', lambda x: app.previous_screen()]]
+                    MDGridLayout:
+                        padding: dp(10)
+                        spacing: dp(10)
+                        cols:1
+                        MDTextField:
+                            id: user_age
+                            mode: "rectangle"
+                            size_hint_x:None
+                            width:300
+                            hint_text: "Enter Age"
+                            write_tab: False
+                        MDTextField:
+                            id: user_height
+                            mode: "rectangle"
+                            size_hint_x:None
+                            width:300
+                            hint_text: "Enter Height" 
+                            write_tab: False
+                        MDTextField:
+                            id: user_weight
+                            mode: "rectangle"
+                            size_hint_x:None
+                            width:300
+                            hint_text: "Enter Weight"   
+                            write_tab: False  
+                        MDBoxLayout:
+                            orientation: 'vertical'
+                            MDLabel:
+                                id: metric
+                                text: "Check for Receivers"
+                                text_size: self.size
+                                pos_hint: {'x': .3, 'y': .55}
+                            MDCheckbox:
+                                id: check_metric
+                                size_hint: None, None
+                                size: dp(48), dp(48)
+                                pos_hint: {'center_x': .5, 'center_y': .56}
+                                opacity: 1
+                                disabled: False          
+                        MDRaisedButton:
+                            id: submit_btn
+                            text: "Submit"
+                            pos_hint: {'center_x': .7, 'center_y': .3}
+                            elevation: 10
+                            on_press: app.add_user_info(user_height.text,user_weight.text,user_age.text)
+                        MDFloatingActionButton:
+                            icon: "android"
+                        Widget:
+                    Widget:
+            Screen: 
+                name: "readings"
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    MDTopAppBar:
+                        title: "Recent Readings"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+                        right_action_items: [['arrow-left', lambda x: app.previous_screen()]]
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        padding: "10dp"
+                        ScrollView:
+                            MDList:
+                                id: reading_list
+                Widget:
+        MDNavigationDrawer:
+            id: nav_drawer
+            BoxLayout:
+                orientation: 'vertical'
+                Image: 
+                    source: 'images/logo.png'
+                    elevation_normal: 8
+                ScrollView:
+                    MDList:
+                        OneLineAvatarIconListItem:
+                            text: 'Order Info'
+                            on_press: 
+                                nav_drawer.set_state("close")
+                                screen_manager.current = 'add_order_info'
+                            IconLeftWidget:
+                                icon: "application-cog"
+                        OneLineAvatarIconListItem:
+                            text: 'Settings'
+                            on_press: 
+                                nav_drawer.set_state("close")
+                                screen_manager.current = 'settings'
+                            IconLeftWidget:
+                                icon: "cogs"                               

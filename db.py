@@ -1,24 +1,32 @@
-import mysql.connector
+import sqlite3
 
-mydb = mysql.connector.connect(
-    host = '10.0.0.3',
-    user = 'GKI',
-    database = 'GKI',
-    passwd = 'password',
-    auth_plugin='mysql_native_password'
-)
-
+mydb = sqlite3.connect("gki.db", check_same_thread=False)
 db = mydb.cursor()
 
-def create_table():
-    db.execute('CREATE TABLE IF NOT EXISTS user ( \
-    user_id INT(8) AUTO_INCREMENT PRIMARY KEY, \
-    username VARCHAR(20), \
-    bday DATE)')
 
-    db.execute('CREATE TABLE IF NOT EXISTS readings ( \
-    id INT(8) AUTO_INCREMENT PRIMARY KEY, \
-    user_id INT, \
-    ketones FLOAT, \
-    glucose FLOAT, \
-    rdate DATE)')
+def create_tables():
+    db.execute(
+        """CREATE TABLE  IF NOT EXISTS readings(
+    id integer PRIMARY KEY,
+    glu REAL,
+    key REAL,
+    gki REAL
+    );"""
+    )
+
+    db.execute(
+        """CREATE TABLE  IF NOT EXISTS frun(
+    id integer PRIMARY KEY,
+    first_run BOOLEAN
+    );"""
+    )
+
+    db.execute(
+        """CREATE TABLE IF NOT EXISTS user_info(
+        id integer PRIMARY KEY,
+        age integer,
+        height TEXT,
+        weight REAL,
+        metric BOOLEAN
+    );"""
+    )
