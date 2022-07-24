@@ -21,22 +21,24 @@ Screen:
                             id: user_glu
                             mode: "rectangle"
                             size_hint_x:None
+                            width: 350
                             hint_text: "Enter Glucose"   
                             write_tab: False 
                             size: self.size
-                            pos_hint: {'x': .1, 'y': .15}
+                            pos_hint: {'x': .03, 'y': .15}
                         MDTextField:
                             id: user_key
                             mode: "rectangle"
+                            width: 350
                             size_hint_x:None
                             hint_text: "Enter Keytones"   
                             write_tab: False 
                             size: self.size
-                            pos_hint: {'x': .3, 'y': .15}
+                            pos_hint: {'x': .4, 'y': .15}
                         MDRaisedButton:
                             id: submit_btn
                             text: "Submit"
-                            pos_hint: {'center_x': .5, 'center_y':.5}
+                            pos_hint: {'center_x': .8, 'center_y':.5}
                             elevation: 10
                             on_press: app.add_reading(user_glu.text,user_key.text)
                     MDFloatLayout:

@@ -14,4 +14,4 @@ This is intended to track your indavidual glucose and ketone level while you are
 - Add a check box to toggle between mg/dL and mmol/L for user inputs.
 
 ### Screenshots
-<img src="screenshots/main_screen.png" width="30%"></img><img src="screenshots/delete_entry.png" width="30%"></img>
+<img src="screenshots/main_screen.png" width="30%"></img><img src="screenshots/delete_entry.png" width="30%"></img><img src="screenshots/main_screen_phone.jpg" width="30%"></img><img src="screenshots/delete_entry_phone.jpg" width="30%"></img>

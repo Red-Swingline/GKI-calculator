@@ -4,10 +4,10 @@
 title = GKI Calculator
 
 # (str) Package name
-package.name = GKI_calculator
+package.name = gki
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.slackers-r-us
+package.domain = org.slackersRus
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -36,8 +36,7 @@ version = 1.0
 
 # (list) Application requirements
 # comma separated e.g. requirements = kivy
-requirements = python3==3.9.7,hostpython3==3.9.7,kivy,httplib2,pillow,pyparsing,chardet,idna,PyNaCl,cryptography,bcrypt,sdl2_ttf==2.0.15,https://github.com/kivymd/KivyMD/archive/master.zip
-
+requirements = python3==3.9.7,hostpython3==3.9.7,kivy,pillow,pyparsing,chardet,idna,PyNaCl,cryptography,bcrypt,sdl2_ttf==2.0.15,https://github.com/kivymd/KivyMD/archive/master.zip
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
@@ -46,13 +45,13 @@ requirements = python3==3.9.7,hostpython3==3.9.7,kivy,httplib2,pillow,pyparsing,
 #garden_requirements =
 
 # (str) Presplash of the application
-presplash.filename = %(source.dir)s/images/splash.png
+#presplash.filename = %(source.dir)s/images/splash.png
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/images/ic_launcher_round.png
+#icon.filename = %(source.dir)s/images/ic_launcher_round.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
-orientation = landscape
+orientation = portrait
 
 # (list) List of service to declare
 #services = NAME:ENTRYPOINT_TO_PY,NAME2:ENTRYPOINT2_TO_PY
